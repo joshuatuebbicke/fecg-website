@@ -106,10 +106,8 @@
   // Initialisieren
   const heroCta = document.querySelector('.hero__cta');
   statement.textContent = statements[0];
-  setTimeout(function () {
-    statement.classList.add('hero__statement--visible');
-    if (heroCta) heroCta.classList.add('hero__cta--visible');
-  }, 700);
+  statement.classList.add('hero__statement--visible');
+  if (heroCta) heroCta.classList.add('hero__cta--visible');
   startTimer();
 
   // Dot-Klicks
