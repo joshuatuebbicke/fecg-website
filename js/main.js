@@ -165,9 +165,19 @@
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
   els.forEach(function (el) { io.observe(el); });
+
+  // Fallback: Elemente die bereits im Viewport sichtbar sind sofort einblenden
+  setTimeout(function () {
+    document.querySelectorAll('.reveal:not(.reveal--visible)').forEach(function (el) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add('reveal--visible');
+      }
+    });
+  }, 100);
 })();
 
 /* ------------------------------------------------------------

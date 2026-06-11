@@ -1463,6 +1463,9 @@ a.footer__contact-val:hover { color: var(--color-accent); }
 .d2 { transition-delay: 0.2s; }
 .d3 { transition-delay: 0.3s; }
 .d4 { transition-delay: 0.4s; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
 
 /* ─── LEAD TEXT ─── */
 .lead {
