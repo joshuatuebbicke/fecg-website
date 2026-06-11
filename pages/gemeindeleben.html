@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemeindeleben – FECG Ratzeburg</title>
+  <meta name="description" content="Glaube, der im Alltag lebt. Kleingruppen, Gebet, Lobpreis und mehr — entdecke das Gemeindeleben der FECG Ratzeburg." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .page-hero--centered { align-items: center; }
+    .page-hero--centered .page-hero__inner { padding-bottom: 0; text-align: center; }
+    .page-hero--centered h1 { font-size: clamp(2.5rem, 8vw, 5rem); }
+    .page-hero--centered::before {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%);
+    }
+    .page-hero__sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.75rem;
+      font-weight: 400;
+    }
+
+    /* ══════════════════════════════════════════
+       VERBINDET — Feature Cards
+    ══════════════════════════════════════════ */
+    .verbindet {
+      background: var(--surface);
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .verbindet__inner { max-width: 1100px; margin-inline: auto; }
+    .verbindet__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--ink-muted);
+      margin-bottom: 0.6rem;
+    }
+    .mobile-br { display: none; }
+    @media (max-width: 860px) { .mobile-br { display: block; } }
+    .verbindet__headline {
+      font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .verbindet__sub {
+      font-size: 1rem; color: var(--ink-soft);
+      margin-bottom: var(--gap-md);
+    }
+    .verbindet__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .verbindet__card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .verbindet__card::before {
+      content: '';
+      display: block;
+      width: 2rem; height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 0.85rem;
+    }
+    .verbindet__card-title {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+    .verbindet__card-text {
+      font-size: 0.925rem; color: var(--ink-soft); line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════
+       GRUPPEN
+    ══════════════════════════════════════════ */
+    .gruppen {
+      background: var(--accent);
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .gruppen__inner { max-width: 1100px; margin-inline: auto; }
+    .gruppen__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.65);
+      margin-bottom: 0.6rem;
+    }
+    .gruppen__headline {
+      font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: var(--gap-md);
+    }
+    .gruppen__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .gruppen__card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .gruppen__card--highlight {
+      background: var(--surface);
+    }
+    .gruppen__card-title {
+      font-size: 1rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .gruppen__card--highlight .gruppen__card-title { color: var(--ink); }
+    .gruppen__card-desc {
+      font-size: 0.9rem; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 1rem; flex: 1;
+    }
+    .gruppen__card--highlight .gruppen__card-desc { color: var(--ink-soft); }
+    .gruppen__card-info {
+      display: flex; flex-direction: column; gap: 0.3rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--surface-2);
+    }
+    .gruppen__card--highlight .gruppen__card-info { border-bottom-color: var(--surface-2); }
+    .gruppen__card-info-row {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.8rem; color: var(--ink-soft); line-height: 1.4;
+    }
+    .gruppen__card--highlight .gruppen__card-info-row { color: var(--ink-soft); }
+    .gruppen__card-info-icon { flex-shrink: 0; margin-top: 0.1rem; }
+    .gruppen__card-btn {
+      display: inline-flex; align-items: center;
+      font-family: var(--font);
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      background: transparent;
+      border: none; padding: 0;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      align-self: flex-start;
+    }
+    .gruppen__card-btn:hover { opacity: 0.7; }
+    .gruppen__card--highlight .gruppen__card-btn { color: var(--accent); }
+
+
+    /* ══════════════════════════════════════════
+       CLOSING CTA
+    ══════════════════════════════════════════ */
+    .closing {
+      background: var(--surface);
+      padding: var(--gap-xl) var(--pad-x);
+      text-align: center;
+    }
+    .closing__inner { max-width: 700px; margin-inline: auto; }
+    .closing__headline {
+      font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    .closing__text {
+      font-size: 1rem; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 2rem;
+    }
+    .btn--outline-ghost {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.3);
+      color: var(--ink-soft);
+      font-size: 0.8125rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.7rem 2rem; border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none; display: inline-flex;
+      align-items: center; justify-content: center;
+    }
+    .btn--outline-ghost:hover {
+      background: rgba(0,0,0,0.06);
+      border-color: var(--ink-soft);
+    }
+    .closing__btns {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .verbindet { padding: var(--gap-md) var(--pad-x); }
+      .verbindet__cards { grid-template-columns: 1fr; }
+
+      .gruppen { padding: var(--gap-md) var(--pad-x); }
+      .gruppen__grid { grid-template-columns: 1fr; }
+
+      .page-hero__sub {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.95);
+        text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+      }
+      .gruppen__grid { gap: 0.75rem; }
+      .gruppen__card { padding: 1.1rem 1.25rem; }
+
+      .closing { padding: var(--gap-lg) var(--pad-x); }
+      .closing__btns { flex-direction: column; align-items: center; }
+      .closing__btns .btn { width: auto; padding-inline: 2.5rem; }
+
+      .gruppen__card-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+
+<!-- NAV -->
+<nav class="nav" id="nav"><div class="nav__inner">
+  <a class="nav__logo" href="../index.html"><img src="../assets/fecglogo.png" alt="FECG Ratzeburg" /></a>
+  <ul class="nav__list" role="list">
+    <li class="nav__item"><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+    <li class="nav__item"><a href="gemeindeleben.html" class="nav__link" aria-current="page">Gemeindeleben</a></li>
+    <li class="nav__item"><a href="jugend.html" class="nav__link">Jugend</a></li>
+    <li class="nav__item"><a href="royal-rangers.html" class="nav__link">Royal Rangers</a></li>
+    <li class="nav__item"><a href="mediathek.html" class="nav__link">Mediathek</a></li>
+    <li class="nav__item"><a href="termine.html" class="nav__link">Termine</a></li>
+    <li class="nav__item"><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+    <li class="nav__item"><a href="gottesdienste.html" class="nav__link nav__link--cta">Gottesdienst →</a></li>
+  </ul>
+  <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div></nav>
+
+<nav class="nav__mobile" aria-label="Mobile Navigation">
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="gottesdienste.html">Gottesdienst</a>
+  <a href="gemeindeleben.html" aria-current="page">Gemeindeleben</a>
+  <a href="jugend.html">Jugend</a>
+  <a href="royal-rangers.html">Royal Rangers</a>
+  <a href="mediathek.html">Mediathek</a>
+  <a href="termine.html">Termine</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<main id="main">
+
+<!-- PAGE HERO ──────────────────────────────────────────────── -->
+<section class="page-hero page-hero--centered"
+         style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=75&auto=format&fit=crop');">
+  <div class="page-hero__inner">
+    <h1>Gemeinde erleben.</h1>
+  </div>
+</section>
+
+<!-- WAS UNS VERBINDET ──────────────────────────────────────── -->
+<section class="verbindet">
+  <div class="verbindet__inner">
+    <h2 class="verbindet__headline reveal">Glaube, der im<br class="mobile-br"> Alltag lebt.</h2>
+    <p class="verbindet__sub reveal d2">Gemeindeleben passiert nicht nur sonntags.</p>
+    <div class="verbindet__cards">
+      <div class="verbindet__card reveal">
+        <p class="verbindet__card-title">Gebet</p>
+        <p class="verbindet__card-text">Gebet ist für uns keine Pflichtübung — sondern echte Begegnung mit Gott. Wir beten füreinander, für unsere Stadt und für das, was uns bewegt.</p>
+      </div>
+      <div class="verbindet__card reveal d1">
+        <p class="verbindet__card-title">Lobpreis</p>
+        <p class="verbindet__card-text">Jeden Sonntag und an besonderen Abenden bringen wir Gott unsere Dankbarkeit mit Liedern entgegen — aus dem Herzen, nicht von der Bühne.</p>
+      </div>
+      <div class="verbindet__card reveal d2">
+        <p class="verbindet__card-title">Kleingruppen</p>
+        <p class="verbindet__card-text">In kleinen Gruppen wird Glaube lebendig. Hier entsteht echte Gemeinschaft — mit Gesprächen, Gebet und Menschen, die füreinander da sind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNSERE GRUPPEN ─────────────────────────────────────────── -->
+<section class="gruppen">
+  <div class="gruppen__inner">
+    <p class="gruppen__eyebrow reveal">Unsere Gruppen</p>
+    <h2 class="gruppen__headline reveal d1">Für jeden ist etwas dabei.</h2>
+
+    <div class="gruppen__grid">
+
+      <!-- Card 1 -->
+      <div class="gruppen__card reveal">
+        <p class="gruppen__card-title">The Chosen Abende</p>
+        <p class="gruppen__card-desc">Gemeinsam die Serie „The Chosen" schauen, ins Gespräch kommen und mit Gebet abschließen.</p>
+        <div class="gruppen__card-info">
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📅</span>
+            <span>Donnerstags, 14-tägig · 19:30 Uhr</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📍</span>
+            <span>Ziethen</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">👤</span>
+            <span>Alle willkommen</span>
+          </div>
+        </div>
+        <a href="mailto:info@fecg-ratzeburg.de" class="gruppen__card-btn">→ Thorben kontaktieren</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gruppen__card reveal d1">
+        <p class="gruppen__card-title">Bibelgesprächstreffen</p>
+        <p class="gruppen__card-desc">Fragen stellen, neue Erkenntnisse gewinnen, Glauben vertiefen — für Einsteiger und erfahrene Bibelleser.</p>
+        <div class="gruppen__card-info">
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📅</span>
+            <span>1. und 3. Donnerstag · 19:00 Uhr</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📍</span>
+            <span>Robert-Bosch-Straße 7, Ratzeburg</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">👤</span>
+            <span>Jung und Alt</span>
+          </div>
+        </div>
+        <a href="mailto:info@fecg-ratzeburg.de" class="gruppen__card-btn">→ Armin kontaktieren</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gruppen__card reveal">
+        <p class="gruppen__card-title">Männer-Workout</p>
+        <p class="gruppen__card-desc">Körperliche Ertüchtigung, Gespräche und der Frage nachgehen: Woran glauben Christen? Eigene Bodenmatte mitbringen.</p>
+        <div class="gruppen__card-info">
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📅</span>
+            <span>Montags, wöchentlich · 17:00 Uhr</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📍</span>
+            <span>Robert-Bosch-Straße 7, Ratzeburg</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">👤</span>
+            <span>Männer, Jung und Alt</span>
+          </div>
+        </div>
+        <a href="mailto:info@fecg-ratzeburg.de" class="gruppen__card-btn">→ Svend &amp; Matthias kontaktieren</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="gruppen__card reveal d1">
+        <p class="gruppen__card-title">Familien-Treffen</p>
+        <p class="gruppen__card-desc">Kaffee, Spielplatz, Waldentdeckungen und gemeinsames Abendbrot — für Familien mit Kindern von 0 bis 6 Jahren.</p>
+        <div class="gruppen__card-info">
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📅</span>
+            <span>Monatlich samstags · 15:30–19:00 Uhr</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📍</span>
+            <span>Nach Absprache</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">👤</span>
+            <span>Familien mit Kindern (0–6 Jahre)</span>
+          </div>
+        </div>
+        <a href="mailto:info@fecg-ratzeburg.de" class="gruppen__card-btn">→ Sonja kontaktieren</a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="gruppen__card reveal">
+        <p class="gruppen__card-title">Frauentreffen</p>
+        <p class="gruppen__card-desc">Gottes Wort teilen, füreinander beten, reden, sich austauschen und voneinander profitieren.</p>
+        <div class="gruppen__card-info">
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📅</span>
+            <span>Nach Absprache</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">📍</span>
+            <span>Robert-Bosch-Straße 7, Ratzeburg</span>
+          </div>
+          <div class="gruppen__card-info-row">
+            <span class="gruppen__card-info-icon">👤</span>
+            <span>Frauen</span>
+          </div>
+        </div>
+        <a href="mailto:info@fecg-ratzeburg.de" class="gruppen__card-btn">→ Annegret kontaktieren</a>
+      </div>
+
+      <!-- Card 6 — Highlight -->
+      <div class="gruppen__card gruppen__card--highlight reveal d1">
+        <p class="gruppen__card-title">Neu dabei?</p>
+        <p class="gruppen__card-desc">Du weißt noch nicht, welche Gruppe zu dir passt? Meld dich einfach — wir helfen dir, den richtigen Einstieg zu finden.</p>
+        <div class="gruppen__card-info" style="border-bottom: none; margin-bottom: 1rem; padding-bottom: 0;">
+        </div>
+        <a href="../kontakt.html" class="gruppen__card-btn">Jetzt melden</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CLOSING CTA ────────────────────────────────────────────── -->
+<section class="closing">
+  <div class="closing__inner">
+    <h2 class="closing__headline reveal">Interesse geweckt?</h2>
+    <p class="closing__text reveal d1">Komm einfach vorbei oder meld dich kurz — wir freuen uns auf dich.</p>
+    <div class="closing__btns reveal d2">
+      <a href="../kontakt.html" class="btn btn--primary">Kontakt aufnehmen</a>
+      <a href="../gottesdienste.html" class="btn btn--outline-ghost">Gottesdienst besuchen</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER ──────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__brand">
+      <img class="footer__logo" src="../assets/fecglogo.png" alt="FECG Ratzeburg" />
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__contact">
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <strong class="footer__contact-label">E-Mail</strong>
+        <a href="mailto:info@fecg-ratzeburg.de" class="footer__contact-val">info@fecg-ratzeburg.de</a>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <strong class="footer__contact-label">Adresse</strong>
+        <address class="footer__contact-val">Robert-Bosch-Straße 7<br/>23909 Ratzeburg</address>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12 19.79 19.79 0 0 1 1.52 3.5 2 2 0 0 1 3.5 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <strong class="footer__contact-label">Telefon</strong>
+        <a href="tel:+4945418336" class="footer__contact-val">04541 83365</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__verse-bar">
+    <p class="footer__verse">„Der HERR ist mein Hirte, mir wird nichts mangeln."</p>
+    <cite class="footer__verse-ref">— Psalm 23</cite>
+  </div>
+  <div class="footer__divider"></div>
+  <div class="footer__lower">
+    <nav class="footer__nav-cols" aria-label="Footer-Navigation">
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Entdecken</p>
+        <div class="footer__nav-links">
+          <a href="../ueber-uns.html">Über uns</a>
+          <a href="../gottesdienste.html">Gottesdienst</a>
+          <a href="gemeindeleben.html">Gemeindeleben</a>
+          <a href="../kontakt.html">Kontakt</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Bereiche</p>
+        <div class="footer__nav-links">
+          <a href="../jugend.html">Jugend</a>
+          <a href="../royal-rangers.html">Royal Rangers</a>
+          <a href="../mediathek.html">Mediathek</a>
+          <a href="termine.html">Termine</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Kontakt &amp; Rechtliches</p>
+        <div class="footer__nav-links">
+          <a href="../kontakt.html">Kontakt</a>
+          <a href="../mitglieder.html">Mitgliederbereich</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </nav>
+    <div class="footer__bottom">
+      <span>© 2026 FECG Ratzeburg.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

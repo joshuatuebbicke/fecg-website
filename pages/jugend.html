@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time-Out Jugend – FECG Ratzeburg</title>
+  <meta name="description" content="Time-Out — die offene Jugendveranstaltung der FECG Ratzeburg für alle zwischen 13 und 17 Jahren. Jeden zweiten Freitag, 18:45 Uhr." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    body { background: var(--surface); }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .page-hero--jugend::before {
+      background: rgba(0,0,0,0.55);
+    }
+    .page-hero--jugend { align-items: center; }
+    .page-hero--jugend .page-hero__inner {
+      text-align: center; display: flex;
+      align-items: center; justify-content: center;
+      padding-bottom: 0;
+    }
+    .jugend-hero-logo {
+      max-width: min(420px, 78vw); width: 100%; height: auto;
+      display: block;
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.45));
+    }
+
+    /* ══════════════════════════════════════════
+       FAKTENLEISTE
+    ══════════════════════════════════════════ */
+    .fakten {
+      background: #eceae5;
+      padding: 2.5rem var(--pad-x);
+    }
+    .fakten__inner {
+      max-width: 1100px; margin-inline: auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem; text-align: center;
+    }
+    .fakten__item {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.3rem;
+    }
+    .fakten__icon {
+      margin-bottom: 0.25rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fakten__icon svg {
+      width: 24px; height: 24px;
+      stroke: var(--accent); stroke-width: 1.5;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .fakten__label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .fakten__value {
+      font-size: 1rem; font-weight: 700; color: var(--ink);
+    }
+
+    /* ══════════════════════════════════════════
+       INTRO (Was ist Time-Out?)
+    ══════════════════════════════════════════ */
+    .intro {
+      background: var(--surface);
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .intro__inner {
+      max-width: 1100px; margin-inline: auto;
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: var(--gap-lg); align-items: center;
+    }
+    .intro__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .intro__headline {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    .intro__text {
+      font-size: 1.1rem; color: var(--ink-soft);
+      line-height: 1.8;
+    }
+    .intro__photos {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.75rem; align-items: end;
+    }
+    .intro__photo {
+      border-radius: 12px; overflow: hidden;
+      display: block; width: 100%; object-fit: cover;
+    }
+    .intro__photo--tall { height: 380px; }
+    .intro__photo--short { height: 270px; margin-bottom: 1.5rem; }
+
+    /* ══════════════════════════════════════════
+       WAS EUCH ERWARTET
+    ══════════════════════════════════════════ */
+    .erwartet {
+      background: var(--dark-2);
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .erwartet__inner { max-width: 1100px; margin-inline: auto; }
+    .erwartet__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      margin-bottom: 0.6rem;
+    }
+    .erwartet__headline {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: var(--gap-md);
+    }
+    .erwartet__cards {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+    .erwartet__card { grid-column: span 2; }
+    .erwartet__card:nth-child(4) { grid-column: 2 / span 2; }
+    .erwartet__card:nth-child(5) { grid-column: 4 / span 2; }
+    .erwartet__card {
+      background: #fff; border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      position: relative;
+    }
+    .erwartet__card-header {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 0;
+    }
+    .erwartet__card-icon svg {
+      width: 20px; height: 20px; flex-shrink: 0;
+      stroke: var(--accent); stroke-width: 1.5;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .erwartet__card--wide {
+      grid-column: auto;
+    }
+    .erwartet__card-title {
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .erwartet__card-text {
+      font-size: 0.9rem; color: var(--ink-soft); line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════
+       WANN & WO
+    ══════════════════════════════════════════ */
+    .wannwo {
+      background: var(--accent);
+      padding: var(--gap-lg) var(--pad-x);
+      text-align: center;
+    }
+    .wannwo__inner { max-width: 800px; margin-inline: auto; }
+    .wannwo__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.65);
+      margin-bottom: 0.6rem;
+    }
+    .wannwo__headline {
+      font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff; margin-bottom: 1.5rem;
+    }
+    .wannwo__cards {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1rem; text-align: left; margin-bottom: 1.25rem;
+    }
+    .wannwo__card {
+      background: #fff; border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+    }
+    .wannwo__card-icon {
+      margin-bottom: 0.6rem; display: block;
+    }
+    .wannwo__card-icon svg {
+      width: 24px; height: 24px;
+      stroke: var(--accent); stroke-width: 1.5;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .wannwo__card-main {
+      font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .wannwo__card-sub { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; }
+    .wannwo__hint {
+      font-size: 0.9rem; color: rgba(255,255,255,0.85);
+    }
+    .kontakt-cta__info {
+      display: flex; justify-content: center; gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .kontakt-cta__info-item {
+      display: flex; align-items: center; gap: 0.45rem;
+      font-size: 0.85rem; font-weight: 500; color: var(--ink-soft);
+      border: 1.5px solid var(--ink-muted);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+    }
+    .kontakt-cta__info-item svg {
+      width: 15px; height: 15px; flex-shrink: 0;
+      stroke: var(--accent); stroke-width: 1.5;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ══════════════════════════════════════════
+       KONTAKT
+    ══════════════════════════════════════════ */
+    .kontakt-cta {
+      background: var(--surface);
+      padding: 4.5rem var(--pad-x);
+      text-align: center;
+    }
+    .kontakt-cta__inner {
+      max-width: 600px; margin-inline: auto;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.75rem;
+    }
+    .kontakt-cta__inner h2 { margin-bottom: 0.75rem; }
+    .kontakt-cta__person { margin-top: 1.75rem; gap: 0.4rem; }
+    .kontakt-cta__btns { margin-top: 1.75rem; }
+    .kontakt-cta__btns .btn { min-width: 200px; justify-content: center; }
+    .kontakt-cta__headline {
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--ink); line-height: 1.5;
+      max-width: 460px; margin: 0;
+    }
+    .kontakt-cta__text {
+      font-size: 1rem; color: var(--ink-soft);
+      line-height: 1.75; margin: 0;
+    }
+    .kontakt-cta__person {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.15rem;
+      margin-top: 0.25rem;
+    }
+    .kontakt-cta__name {
+      font-size: 1rem; font-weight: 700; color: var(--ink);
+      margin: 0 !important; padding: 0;
+    }
+    .kontakt-cta__role {
+      font-size: 0.8rem; color: var(--ink-muted);
+      margin: 0 !important; padding: 0;
+    }
+    .kontakt-cta__btns {
+      display: flex; gap: 0.75rem; justify-content: center;
+      flex-wrap: wrap; margin-top: 0.5rem;
+    }
+    .kontakt-cta__hint {
+      font-size: 0.875rem; color: var(--ink-muted); margin: 0;
+    }
+    .kontakt-cta__badge {
+      margin-top: 2rem;
+      display: flex; justify-content: center;
+    }
+    .kontakt-cta__badge img {
+      max-width: 180px; width: 100%; height: auto;
+      opacity: 0.75;
+    }
+
+    /* ══════════════════════════════════════════
+       TERMINE
+    ══════════════════════════════════════════ */
+    .termine-section {
+      background: var(--dark-2);
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .termine-section__inner { max-width: 1100px; margin-inline: auto; }
+    .termine-section__headline {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: var(--gap-md);
+    }
+    .termine-list {
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .termin-item {
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 1rem 1.5rem;
+      align-items: center;
+      border-left: 3px solid var(--accent);
+    }
+    .termin-item__date {
+      text-align: center;
+    }
+    .termin-item__day {
+      font-size: 1.75rem; font-weight: 800; color: #fff; line-height: 1;
+    }
+    .termin-item__month {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .termin-item__title {
+      font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem;
+    }
+    .termin-item__meta {
+      font-size: 0.85rem; color: rgba(255,255,255,0.5);
+    }
+    .termine-section__more {
+      margin-top: 1.5rem;
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .fakten__inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .fakten__value { font-size: 0.9rem; }
+      .fakten__label { font-size: 0.61rem; }
+    }
+
+    @media (max-width: 860px) {
+
+      .intro { padding: var(--gap-md) var(--pad-x); }
+      .intro__inner { grid-template-columns: 1fr; }
+      .intro__eyebrow, .intro__headline, .intro__text { text-align: center; }
+      .intro__photos { grid-template-columns: 1fr 1fr; }
+      .intro__photo--tall { height: 200px; }
+      .intro__photo--short { height: 150px; margin-bottom: 0; }
+
+      .erwartet { padding: var(--gap-md) var(--pad-x); }
+      .erwartet__cards { grid-template-columns: 1fr; }
+      .erwartet__card, .erwartet__card:nth-child(4), .erwartet__card:nth-child(5) { grid-column: 1 / -1; }
+
+      .wannwo { padding: var(--gap-md) var(--pad-x); }
+      .wannwo__cards { grid-template-columns: 1fr; }
+
+      .kontakt-cta { padding: 4rem var(--pad-x); }
+      .kontakt-cta__btns { flex-direction: row; flex-wrap: wrap; }
+      .kontakt-cta__btns .btn { flex: 1; justify-content: center; max-width: 75%; }
+
+      .termin-item { grid-template-columns: 4rem 1fr; padding: 0.875rem 1rem; }
+      .termin-item__day { font-size: 1.4rem; }
+    }
+
+    @media (max-width: 480px) {
+      .intro__photos { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+
+<!-- NAV -->
+<nav class="nav" id="nav"><div class="nav__inner">
+  <a class="nav__logo" href="../index.html"><img src="../assets/fecglogo.png" alt="FECG Ratzeburg" /></a>
+  <ul class="nav__list" role="list">
+    <li class="nav__item"><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+    <li class="nav__item"><a href="gemeindeleben.html" class="nav__link">Gemeindeleben</a></li>
+    <li class="nav__item"><a href="jugend.html" class="nav__link" aria-current="page">Jugend</a></li>
+    <li class="nav__item"><a href="royal-rangers.html" class="nav__link">Royal Rangers</a></li>
+    <li class="nav__item"><a href="mediathek.html" class="nav__link">Mediathek</a></li>
+    <li class="nav__item"><a href="termine.html" class="nav__link">Termine</a></li>
+    <li class="nav__item"><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+    <li class="nav__item"><a href="gottesdienste.html" class="nav__link nav__link--cta">Gottesdienst →</a></li>
+  </ul>
+  <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div></nav>
+
+<nav class="nav__mobile" aria-label="Mobile Navigation">
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="gottesdienste.html">Gottesdienst</a>
+  <a href="gemeindeleben.html">Gemeindeleben</a>
+  <a href="jugend.html" aria-current="page">Jugend</a>
+  <a href="royal-rangers.html">Royal Rangers</a>
+  <a href="mediathek.html">Mediathek</a>
+  <a href="termine.html">Termine</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<main id="main">
+
+<!-- 1. HERO ─────────────────────────────────────────────────── -->
+<!-- Austauschen: echtes Time-Out Foto -->
+<section class="page-hero page-hero--jugend"
+         style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=75&auto=format&fit=crop');">
+  <div class="page-hero__inner">
+    <img class="jugend-hero-logo" src="../assets/timeout-logo.png" alt="Time-Out – Die Jugend der FECG Ratzeburg" />
+  </div>
+</section>
+
+<!-- 2. FAKTENLEISTE ────────────────────────────────────────── -->
+<section class="fakten">
+  <div class="fakten__inner">
+    <div class="fakten__item reveal">
+      <span class="fakten__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      <span class="fakten__label">Alter</span>
+      <span class="fakten__value">13–17 Jahre</span>
+    </div>
+    <div class="fakten__item reveal d1">
+      <span class="fakten__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+      <span class="fakten__label">Wann</span>
+      <span class="fakten__value">Jeden 2. Freitag · 18:45 Uhr</span>
+    </div>
+    <div class="fakten__item reveal d2">
+      <span class="fakten__icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <span class="fakten__label">Wo</span>
+      <span class="fakten__value">Robert-Bosch-Str. 7</span>
+    </div>
+    <div class="fakten__item reveal d3">
+      <span class="fakten__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></span>
+      <span class="fakten__label">Mitbringen</span>
+      <span class="fakten__value">Hunger &amp; gute Laune</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WAS IST TIME-OUT? ────────────────────────────────────── -->
+<section class="intro">
+  <div class="intro__inner">
+    <div>
+      <p class="intro__eyebrow reveal">Jugendtreff der FECG Ratzeburg</p>
+      <h2 class="intro__headline reveal d1">Offen für alle.<br/>Echt für dich.</h2>
+      <p class="intro__text reveal d2">Time-Out ist die offene Jugendveranstaltung der FECG Ratzeburg — für alle zwischen 13 und 17 Jahren. Kein Programm, das du kennen musst. Kein Glaube, den du mitbringen musst. Nur ein Abend, an dem du du sein kannst.</p>
+    </div>
+    <div class="intro__photos reveal d2">
+      <!-- Austauschen: echtes Time-Out Foto -->
+      <img class="intro__photo intro__photo--tall"
+           src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=75&auto=format&fit=crop"
+           alt="Jugendliche bei Time-Out" />
+      <!-- Austauschen: echtes Time-Out Foto -->
+      <img class="intro__photo intro__photo--short"
+           src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=700&q=75&auto=format&fit=crop"
+           alt="Lachen und Freundschaft" />
+    </div>
+  </div>
+</section>
+
+<!-- 4. WAS EUCH ERWARTET ────────────────────────────────────── -->
+<section class="erwartet">
+  <div class="erwartet__inner">
+    <p class="erwartet__eyebrow reveal">Was dich erwartet</p>
+    <h2 class="erwartet__headline reveal d1">Mehr als nur Treffen.</h2>
+    <div class="erwartet__cards">
+
+      <div class="erwartet__card reveal">
+        <div class="erwartet__card-header">
+          <div class="erwartet__card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <p class="erwartet__card-title">Spaß & Gemeinschaft</p>
+        </div>
+      </div>
+
+      <div class="erwartet__card reveal d1">
+        <div class="erwartet__card-header">
+          <div class="erwartet__card-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <p class="erwartet__card-title">Essen zusammen</p>
+        </div>
+      </div>
+
+      <div class="erwartet__card reveal d2">
+        <div class="erwartet__card-header">
+          <div class="erwartet__card-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <p class="erwartet__card-title">Gott kennenlernen</p>
+        </div>
+      </div>
+
+      <div class="erwartet__card reveal d3">
+        <div class="erwartet__card-header">
+          <div class="erwartet__card-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <p class="erwartet__card-title">Aktionen & Spiele</p>
+        </div>
+      </div>
+
+      <div class="erwartet__card erwartet__card--wide reveal d4">
+        <div class="erwartet__card-header">
+          <div class="erwartet__card-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <p class="erwartet__card-title">Echte Gespräche</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT + CLOSING ───────────────────────────────────────── -->
+<section class="kontakt-cta" id="kontakt">
+  <div class="kontakt-cta__inner">
+    <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1.2; margin: 0;">Meld dich bei Lars.</h2>
+    <div class="kontakt-cta__person reveal d2">
+      <img src="../assets/lars-avatar.png" alt="Lars Quedenbaum-Link"
+           style="width:72px; height:72px; border-radius:50%; object-fit:cover; display:block;" />
+      <p class="kontakt-cta__name">Lars Quedenbaum-Link</p>
+      <p class="kontakt-cta__role">Jugendleiter Time-Out · FECG Ratzeburg</p>
+    </div>
+    <div class="kontakt-cta__btns reveal d3">
+      <!-- WhatsApp-Nummer Lars ergänzen -->
+      <a href="https://wa.me/4915755201718" class="btn btn--primary">WhatsApp schreiben</a>
+      <a href="../termine/" class="btn btn--secondary">Alle Termine</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER ──────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__brand">
+      <img class="footer__logo" src="../assets/fecglogo.png" alt="FECG Ratzeburg" />
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__contact">
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <strong class="footer__contact-label">E-Mail</strong>
+        <a href="mailto:info@fecg-ratzeburg.de" class="footer__contact-val">info@fecg-ratzeburg.de</a>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <strong class="footer__contact-label">Adresse</strong>
+        <address class="footer__contact-val">Robert-Bosch-Straße 7<br/>23909 Ratzeburg</address>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12 19.79 19.79 0 0 1 1.52 3.5 2 2 0 0 1 3.5 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <strong class="footer__contact-label">Telefon</strong>
+        <a href="tel:+4945418336" class="footer__contact-val">04541 83365</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__verse-bar">
+    <p class="footer__verse">„Der HERR ist mein Hirte, mir wird nichts mangeln."</p>
+    <cite class="footer__verse-ref">— Psalm 23</cite>
+  </div>
+  <div class="footer__divider"></div>
+  <div class="footer__lower">
+    <nav class="footer__nav-cols" aria-label="Footer-Navigation">
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Entdecken</p>
+        <div class="footer__nav-links">
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="gottesdienste.html">Gottesdienst</a>
+          <a href="gemeindeleben.html">Gemeindeleben</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Bereiche</p>
+        <div class="footer__nav-links">
+          <a href="jugend.html">Jugend</a>
+          <a href="royal-rangers.html">Royal Rangers</a>
+          <a href="mediathek.html">Mediathek</a>
+          <a href="termine.html">Termine</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Kontakt &amp; Rechtliches</p>
+        <div class="footer__nav-links">
+          <a href="kontakt.html">Kontakt</a>
+          <a href="mitglieder.html">Mitgliederbereich</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </nav>
+    <div class="footer__bottom">
+      <span>© 2026 FECG Ratzeburg.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

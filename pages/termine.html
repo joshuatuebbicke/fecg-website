@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termine – FECG Ratzeburg</title>
+  <meta name="description" content="Gottesdienste, Gruppen und Events — alle Termine der FECG Ratzeburg auf einen Blick." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .page-hero--centered { align-items: center; }
+    .page-hero--centered .page-hero__inner { padding-bottom: 0; text-align: center; }
+    .page-hero--centered h1 { font-size: clamp(2.5rem, 8vw, 5rem); }
+    .page-hero--centered::before {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .page-hero__sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.85);
+      margin-top: 0.75rem;
+      font-weight: 400;
+    }
+
+    /* ══════════════════════════════════════════
+       HIGHLIGHT STRIP
+    ══════════════════════════════════════════ */
+    .highlight {
+      background: var(--surface);
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .highlight__inner {
+      max-width: 1000px;
+      margin-inline: auto;
+    }
+    .highlight__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--ink-muted);
+      margin-bottom: 0.6rem;
+    }
+    .highlight__headline {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: var(--gap-md);
+    }
+    .highlight__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .highlight__card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .highlight__card-img {
+      width: 100%; height: 260px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+    .highlight__card-body {
+      padding: 1.25rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .highlight__card-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .highlight__card-title {
+      font-size: 1.2rem; font-weight: 800;
+      letter-spacing: -0.02em; color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .highlight__card-text {
+      font-size: 0.9rem; color: var(--ink-soft);
+      line-height: 1.65; margin-bottom: 1.25rem; flex: 1;
+    }
+    .highlight__card-btn {
+      display: inline-block;
+      font-family: var(--font);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none;
+      border: 1.5px solid var(--accent);
+      border-radius: 2px; padding: 0.6rem 1.25rem;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .highlight__card-btn:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ══════════════════════════════════════════
+       KALENDER
+    ══════════════════════════════════════════ */
+    .kalender {
+      background: var(--accent);
+      padding: var(--gap-sm) var(--pad-x);
+    }
+    .kalender__inner { max-width: 1000px; margin-inline: auto; }
+    .kalender__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.65);
+      margin-bottom: 0.6rem;
+    }
+    .kalender__headline {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .kalender__sub {
+      font-size: 1rem; color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+    .calendar-wrap {
+      max-width: 1000px; margin-inline: auto;
+      border-radius: 12px; overflow: hidden;
+    }
+    .calendar-wrap iframe { display: block; height: 600px; width: 100%; }
+    .kalender__open-link {
+      display: inline-block; margin-top: 1.25rem;
+      font-size: 0.85rem; color: #fff; opacity: 0.6;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .kalender__open-link:hover { opacity: 1; }
+
+    /* ══════════════════════════════════════════
+       CLOSING CTA
+    ══════════════════════════════════════════ */
+    .closing {
+      background: var(--surface);
+      padding: var(--gap-xl) var(--pad-x);
+      text-align: center;
+    }
+    .closing__inner { max-width: 680px; margin-inline: auto; }
+    .closing__headline {
+      font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: 0.75rem; line-height: 1.2;
+    }
+    .closing__text {
+      font-size: 1rem; color: var(--ink-soft);
+      line-height: 1.7; margin-bottom: 2rem;
+    }
+    .closing__btns {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .btn--white {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      font-size: 0.8125rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.75rem 2rem; border-radius: 2px;
+      text-decoration: none; display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .btn--white:hover { opacity: 0.88; }
+    .btn--outline-white-solid {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.25);
+      color: var(--ink-soft);
+      font-size: 0.8125rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.75rem 2rem; border-radius: 2px;
+      text-decoration: none; display: inline-block;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn--outline-white-solid:hover {
+      background: rgba(0,0,0,0.05);
+      border-color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .highlight { padding: var(--gap-md) var(--pad-x); }
+      .highlight__grid { grid-template-columns: 1fr; }
+
+      .kalender { padding: var(--gap-md) var(--pad-x); }
+      .calendar-wrap iframe { height: 500px; }
+
+      .closing { padding: var(--gap-lg) var(--pad-x); }
+      .closing__btns { flex-direction: column; align-items: center; }
+
+      .page-hero__sub {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.95);
+        text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+      }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+
+<!-- NAV -->
+<nav class="nav" id="nav"><div class="nav__inner">
+  <a class="nav__logo" href="../index.html"><img src="../assets/fecglogo.png" alt="FECG Ratzeburg" /></a>
+  <ul class="nav__list" role="list">
+    <li class="nav__item"><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+    <li class="nav__item"><a href="gemeindeleben.html" class="nav__link">Gemeindeleben</a></li>
+    <li class="nav__item"><a href="jugend.html" class="nav__link">Jugend</a></li>
+    <li class="nav__item"><a href="royal-rangers.html" class="nav__link">Royal Rangers</a></li>
+    <li class="nav__item"><a href="mediathek.html" class="nav__link">Mediathek</a></li>
+    <li class="nav__item"><a href="termine.html" class="nav__link" aria-current="page">Termine</a></li>
+    <li class="nav__item"><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+    <li class="nav__item"><a href="gottesdienste.html" class="nav__link nav__link--cta">Gottesdienst →</a></li>
+  </ul>
+  <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div></nav>
+
+<nav class="nav__mobile" aria-label="Mobile Navigation">
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="gottesdienste.html">Gottesdienst</a>
+  <a href="gemeindeleben.html">Gemeindeleben</a>
+  <a href="jugend.html">Jugend</a>
+  <a href="royal-rangers.html">Royal Rangers</a>
+  <a href="mediathek.html">Mediathek</a>
+  <a href="termine.html" aria-current="page">Termine</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<main id="main">
+
+<!-- PAGE HERO ──────────────────────────────────────────────── -->
+<section class="page-hero page-hero--centered"
+         style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=75&auto=format&fit=crop');">
+  <div class="page-hero__inner">
+    <h1>Immer etwas los.</h1>
+  </div>
+</section>
+
+<!-- HIGHLIGHT STRIP ────────────────────────────────────────── -->
+<section class="highlight">
+  <div class="highlight__inner">
+    <p class="highlight__eyebrow reveal">Regelmäßige Highlights</p>
+    <h2 class="highlight__headline reveal d1">Diese Termine gibt es jede Woche.</h2>
+    <div class="highlight__grid">
+
+      <!-- Card 1: Gottesdienst -->
+      <div class="highlight__card reveal">
+        <!-- Austauschen: echtes FECG Gottesdienst-Foto -->
+        <img class="highlight__card-img"
+             src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=75&auto=format&fit=crop"
+             alt="Gottesdienst Atmosphäre" />
+        <div class="highlight__card-body">
+          <span class="highlight__card-label">Sonntags · 10:00 Uhr</span>
+          <h3 class="highlight__card-title">Gottesdienst</h3>
+          <p class="highlight__card-text">Jeden Sonntag um 10 Uhr — mit Lobpreis, Predigt und Bistro danach.</p>
+          <a href="../gottesdienste.html" class="highlight__card-btn">Mehr erfahren</a>
+        </div>
+      </div>
+
+      <!-- Card 2: Royal Rangers -->
+      <div class="highlight__card reveal d1">
+        <!-- Austauschen: echtes Royal Rangers Foto -->
+        <img class="highlight__card-img"
+             src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=75&auto=format&fit=crop"
+             alt="Royal Rangers Outdoor" />
+        <div class="highlight__card-body">
+          <span class="highlight__card-label">Freitags · 17:00 Uhr</span>
+          <h3 class="highlight__card-title">Royal Rangers</h3>
+          <p class="highlight__card-text">Draußen sein, Lagerfeuer, Gemeinschaft — jede Woche freitags.</p>
+          <a href="../royal-rangers.html" class="highlight__card-btn">Mehr erfahren</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Kindergottesdienst -->
+      <div class="highlight__card reveal d2">
+        <!-- Austauschen: echtes Kindergottesdienst-Foto -->
+        <img class="highlight__card-img"
+             src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=75&auto=format&fit=crop"
+             alt="Kinder beim Gottesdienst" />
+        <div class="highlight__card-body">
+          <span class="highlight__card-label">Sonntags · 10:00 Uhr</span>
+          <h3 class="highlight__card-title">Kindergottesdienst</h3>
+          <p class="highlight__card-text">Parallel zum Gottesdienst — speziell für Kinder mit Geschichten, Basteln und Singen.</p>
+          <a href="../gottesdienste.html" class="highlight__card-btn">Mehr erfahren</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KALENDER ───────────────────────────────────────────────── -->
+<section class="kalender">
+  <div class="kalender__inner">
+    <h2 class="kalender__headline reveal">Was steht an?</h2>
+    <p class="kalender__sub reveal d2">Alle Veranstaltungen der FECG Ratzeburg — immer aktuell.</p>
+
+    <div class="calendar-wrap reveal d3">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=e4a721dfdfa8c424b3ddea02edca153b9184e3717a79aafcacde53699b71c3c3%40group.calendar.google.com&ctz=Europe%2FBerlin&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+        style="border: 0"
+        width="100%"
+        height="600"
+        frameborder="0"
+        scrolling="no">
+      </iframe>
+    </div>
+
+    <a class="kalender__open-link"
+       href="https://calendar.google.com/calendar/embed?src=e4a721dfdfa8c424b3ddea02edca153b9184e3717a79aafcacde53699b71c3c3%40group.calendar.google.com"
+       target="_blank" rel="noopener">In Google Calendar öffnen →</a>
+  </div>
+</section>
+
+<!-- CLOSING CTA ────────────────────────────────────────────── -->
+<section class="closing">
+  <div class="closing__inner">
+    <h2 class="closing__headline reveal">Der beste Einstieg? Einfach vorbeikommen.</h2>
+    <p class="closing__text reveal d1">Komm sonntags vorbei oder meld dich kurz bei uns — wir freuen uns auf dich.</p>
+    <div class="closing__btns reveal d2">
+      <a href="../gottesdienste.html" class="btn--white">Gottesdienst besuchen</a>
+      <a href="../kontakt.html" class="btn--outline-white-solid">Kontakt aufnehmen</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER ──────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__brand">
+      <img class="footer__logo" src="../assets/fecglogo.png" alt="FECG Ratzeburg" />
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__contact">
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <strong class="footer__contact-label">E-Mail</strong>
+        <a href="mailto:info@fecg-ratzeburg.de" class="footer__contact-val">info@fecg-ratzeburg.de</a>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <strong class="footer__contact-label">Adresse</strong>
+        <address class="footer__contact-val">Robert-Bosch-Straße 7<br/>23909 Ratzeburg</address>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12 19.79 19.79 0 0 1 1.52 3.5 2 2 0 0 1 3.5 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <strong class="footer__contact-label">Telefon</strong>
+        <a href="tel:+4945418336" class="footer__contact-val">04541 83365</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__verse-bar">
+    <p class="footer__verse">„Der HERR ist mein Hirte, mir wird nichts mangeln."</p>
+    <cite class="footer__verse-ref">— Psalm 23</cite>
+  </div>
+  <div class="footer__divider"></div>
+  <div class="footer__lower">
+    <nav class="footer__nav-cols" aria-label="Footer-Navigation">
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Entdecken</p>
+        <div class="footer__nav-links">
+          <a href="../ueber-uns.html">Über uns</a>
+          <a href="../gottesdienste.html">Gottesdienst</a>
+          <a href="../gemeindeleben.html">Gemeindeleben</a>
+          <a href="../kontakt.html">Kontakt</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Bereiche</p>
+        <div class="footer__nav-links">
+          <a href="../jugend.html">Jugend</a>
+          <a href="../royal-rangers.html">Royal Rangers</a>
+          <a href="../mediathek.html">Mediathek</a>
+          <a href="termine.html">Termine</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Kontakt &amp; Rechtliches</p>
+        <div class="footer__nav-links">
+          <a href="../kontakt.html">Kontakt</a>
+          <a href="../mitglieder.html">Mitgliederbereich</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </nav>
+    <div class="footer__bottom">
+      <span>© 2026 FECG Ratzeburg.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  (function () {
+    var iframe = document.querySelector('.calendar-wrap iframe');
+    if (!iframe) return;
+    if (window.innerWidth <= 860) {
+      iframe.src = iframe.src.replace('mode=MONTH', 'mode=AGENDA');
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FECG Ratzeburg – Freie Evangelische Christus Gemeinde</title>
+  <meta name="description" content="Willkommen bei der FECG Ratzeburg – eine lebendige Gemeinde in Ratzeburg. Gottesdienste jeden Sonntag um 10:00 Uhr." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+
+<!-- NAV: Transparent über Hero, wird bei Scroll dunkel -->
+<nav class="nav" id="nav"><div class="nav__inner">
+  <a class="nav__logo" href="index.html"><img src="assets/fecglogo.png" alt="FECG Ratzeburg" /></a>
+  <ul class="nav__list" role="list">
+    <li class="nav__item"><a href="pages/ueber-uns.html" class="nav__link">Über uns</a></li>
+    <li class="nav__item"><a href="pages/gemeindeleben.html" class="nav__link">Gemeindeleben</a></li>
+    <li class="nav__item"><a href="pages/jugend.html" class="nav__link">Jugend</a></li>
+    <li class="nav__item"><a href="pages/royal-rangers.html" class="nav__link">Royal Rangers</a></li>
+    <li class="nav__item"><a href="pages/mediathek.html" class="nav__link">Mediathek</a></li>
+    <li class="nav__item"><a href="pages/termine.html" class="nav__link">Termine</a></li>
+    <li class="nav__item"><a href="pages/kontakt.html" class="nav__link">Kontakt</a></li>
+    <li class="nav__item"><a href="pages/gottesdienste.html" class="nav__link nav__link--cta">Gottesdienst →</a></li>
+  </ul>
+  <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div></nav>
+
+<nav class="nav__mobile" aria-label="Mobile Navigation">
+  <a href="pages/ueber-uns.html">Über uns</a>
+  <a href="pages/gottesdienste.html">Gottesdienst</a>
+  <a href="pages/gemeindeleben.html">Gemeindeleben</a>
+  <a href="pages/jugend.html">Jugend</a>
+  <a href="pages/royal-rangers.html">Royal Rangers</a>
+  <a href="pages/mediathek.html">Mediathek</a>
+  <a href="pages/termine.html">Termine</a>
+  <a href="pages/kontakt.html">Kontakt</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     HERO — Vollbild-Slideshow
+     Platzhalterbilder: durch echte Gemeinde-Fotos ersetzen
+     ═══════════════════════════════════════════════ -->
+<main id="main">
+<section class="hero" aria-label="Willkommen bei der FECG Ratzeburg">
+  <div class="hero__slides" aria-hidden="true">
+
+    <!-- Folie 1: Atmosphäre Gottesdienst — echtes Foto einfügen -->
+    <div class="hero__slide hero__slide--active"
+         style="background-image:url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1920&q=75&auto=format&fit=crop'); background-color:#1a1a1a;">
+      <div class="hero__overlay"></div>
+    </div>
+
+    <!-- Folie 2: Gemeinschaft / Menschen zusammen — echtes Foto einfügen -->
+    <div class="hero__slide"
+         style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=75&auto=format&fit=crop'); background-color:#141414;">
+      <div class="hero__overlay"></div>
+    </div>
+
+    <!-- Folie 3: Lobpreis / Worship-Moment — echtes Foto einfügen -->
+    <div class="hero__slide"
+         style="background-image:url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1920&q=75&auto=format&fit=crop'); background-color:#111111;">
+      <div class="hero__overlay"></div>
+    </div>
+
+  </div>
+
+  <!-- Zentriertes Statement, wechselt mit jeder Folie -->
+  <div class="hero__content">
+    <p class="hero__statement" id="heroStatement" aria-live="polite"></p>
+    <div class="hero__cta">
+      <a href="pages/gottesdienste.html" class="hero__cta-btn hero__cta-btn--primary">Gottesdienst besuchen</a>
+      <a href="pages/mediathek.html" class="hero__cta-btn">Predigten hören →</a>
+    </div>
+  </div>
+
+  <!-- Dot-Navigation -->
+  <div class="hero__nav" role="tablist" aria-label="Slideshow-Navigation">
+    <button class="hero__dot hero__dot--active" role="tab" aria-selected="true" aria-label="Folie 1"></button>
+    <button class="hero__dot" role="tab" aria-selected="false" aria-label="Folie 2"></button>
+    <button class="hero__dot" role="tab" aria-selected="false" aria-label="Folie 3"></button>
+  </div>
+
+  <!-- Scroll-Indikator -->
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+  </div>
+
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     VERS STRIP — Matthäus 18,20
+     ═══════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════
+     WELCOME COLLAGE — Du gehörst dazu
+     ═══════════════════════════════════════════════ -->
+<section class="welcome-collage">
+  <div class="welcome-collage__text reveal">
+    <h2 class="welcome-collage__headline">Du gehörst dazu.</h2>
+    <p class="welcome-collage__statement">Eine Gemeinde in Ratzeburg — für Menschen, die suchen, glauben und gemeinsam leben wollen.</p>
+    <p class="welcome-collage__invite">Ob du schon lange glaubst, gerade suchst oder einfach neugierig bist — du bist willkommen.</p>
+    <a href="pages/ueber-uns.html" class="welcome-collage__btn">Gemeinde kennenlernen →</a>
+  </div>
+  <div class="welcome-collage__photos reveal d1">
+    <img class="welcome-collage__img welcome-collage__img--1" src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80&auto=format&fit=crop" alt="FECG Gemeinschaft" loading="lazy" />
+    <img class="welcome-collage__img welcome-collage__img--2" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80&auto=format&fit=crop" alt="FECG Gemeinschaft" loading="lazy" />
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SUNDAY CTA — Zeit + Adresse
+     ═══════════════════════════════════════════════ -->
+<section class="sunday-minimal" id="gottesdienst">
+  <div class="sunday-minimal__header reveal">
+    <p class="sunday-minimal__eyebrow">Nächster Gottesdienst</p>
+    <h2 class="sunday-minimal__headline">Sonntag, <span id="nextSundayDate" class="sunday-minimal__datespan"></span><br/>10 Uhr.</h2>
+    <p class="sunday-minimal__address">Robert-Bosch-Straße 7 · 23909 Ratzeburg</p>
+    <a href="pages/gottesdienste.html" class="btn btn--secondary sunday-minimal__btn">Alles zum Gottesdienst →</a>
+  </div>
+  <div class="sunday-minimal__cards reveal d1">
+    <div class="sunday-minimal__item">
+      <div class="sunday-minimal__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <span class="sunday-minimal__item-label">Gottesdienst</span>
+      <span class="sunday-minimal__item-val">10:00 Uhr</span>
+    </div>
+    <div class="sunday-minimal__item sunday-minimal__item--featured">
+      <div class="sunday-minimal__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <span class="sunday-minimal__item-label">Kindergottesdienst</span>
+      <span class="sunday-minimal__item-val">parallel</span>
+    </div>
+    <div class="sunday-minimal__item">
+      <div class="sunday-minimal__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+      <span class="sunday-minimal__item-label">Bistro danach</span>
+      <span class="sunday-minimal__item-val">ab 11:30 Uhr</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     JAHRESLOSUNG
+     ═══════════════════════════════════════════════ -->
+<section class="mission-statement">
+
+  <h2 class="mission-statement__headline reveal d1">„Gott spricht: Siehe, ich mache alles neu!"</h2>
+  <p class="mission-statement__sub reveal d2">Offenbarung 21,5</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     NAV CARDS — Termine / Neu hier? / Predigten
+     ═══════════════════════════════════════════════ -->
+<section class="card-grid" aria-label="Entdecken">
+  <a href="pages/termine.html" class="card">
+    <img src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=800&q=80&auto=format&fit=crop" alt="Termine" loading="lazy" />
+    <div class="card__overlay">
+      <div class="card__overlay-body">
+        <h3>Termine &amp; Events</h3>
+      </div>
+      <span class="card__btn">Alle Termine</span>
+    </div>
+  </a>
+  <a href="pages/gottesdienste.html" class="card">
+    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80&auto=format&fit=crop" alt="Neu hier?" loading="lazy" />
+    <div class="card__overlay">
+      <div class="card__overlay-body">
+        <h3>Neu hier?</h3>
+      </div>
+      <span class="card__btn">Erster Besuch</span>
+    </div>
+  </a>
+  <a href="pages/mediathek.html" class="card">
+    <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=800&q=80&auto=format&fit=crop" alt="Predigten" loading="lazy" />
+    <div class="card__overlay">
+      <div class="card__overlay-body">
+        <h3>Predigten</h3>
+      </div>
+      <span class="card__btn">Zur Mediathek</span>
+    </div>
+  </a>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CLOSING SECTION — Emotionaler Abschluss
+     ═══════════════════════════════════════════════ -->
+<section class="closing-section">
+  <!-- EIGENES VIDEO: src ersetzen -->
+  <video class="closing-section__video" autoplay muted loop playsinline>
+    <source src="assets/worship.mp4" type="video/mp4">
+  </video>
+  <div class="closing-section__overlay"></div>
+  <div class="closing-section__content">
+    <h2 class="closing-section__headline reveal">Komm und sieh selbst.</h2>
+    <a href="pages/gottesdienste.html" class="btn btn--primary closing-section__btn reveal d1">Gottesdienst besuchen</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__brand">
+      <img class="footer__logo" src="assets/fecglogo.png" alt="FECG Ratzeburg" />
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__contact">
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <strong class="footer__contact-label">E-Mail</strong>
+        <a href="mailto:info@fecg-ratzeburg.de" class="footer__contact-val">info@fecg-ratzeburg.de</a>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <strong class="footer__contact-label">Adresse</strong>
+        <address class="footer__contact-val">Robert-Bosch-Straße 7<br/>23909 Ratzeburg</address>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12 19.79 19.79 0 0 1 1.52 3.5 2 2 0 0 1 3.5 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <strong class="footer__contact-label">Telefon</strong>
+        <a href="tel:+4945418336" class="footer__contact-val">04541 83365</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__verse-bar">
+    <p class="footer__verse">„Der HERR ist mein Hirte, mir wird nichts mangeln."</p>
+    <cite class="footer__verse-ref">— Psalm 23</cite>
+  </div>
+  <div class="footer__divider"></div>
+  <div class="footer__lower">
+    <nav class="footer__nav-cols" aria-label="Footer-Navigation">
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Entdecken</p>
+        <div class="footer__nav-links">
+          <a href="pages/ueber-uns.html">Über uns</a>
+          <a href="pages/gottesdienste.html">Gottesdienst</a>
+          <a href="pages/gemeindeleben.html">Gemeindeleben</a>
+          <a href="pages/kontakt.html">Kontakt</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Bereiche</p>
+        <div class="footer__nav-links">
+          <a href="pages/jugend.html">Jugend</a>
+          <a href="pages/royal-rangers.html">Royal Rangers</a>
+          <a href="pages/mediathek.html">Mediathek</a>
+          <a href="pages/termine.html">Termine</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Kontakt &amp; Rechtliches</p>
+        <div class="footer__nav-links">
+          <a href="pages/kontakt.html">Kontakt</a>
+          <a href="pages/mitglieder.html">Mitgliederbereich</a>
+          <a href="pages/impressum.html">Impressum</a>
+          <a href="pages/datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </nav>
+    <div class="footer__bottom">
+      <span>© 2026 FECG Ratzeburg.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

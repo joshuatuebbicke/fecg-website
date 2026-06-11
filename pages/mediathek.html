@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mediathek – FECG Ratzeburg</title>
+  <meta name="description" content="Predigten, Worship und Lebensberichte der FECG Ratzeburg — wann und wo du willst." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: var(--surface); }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .page-hero--mediathek::before {
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+    }
+    .page-hero--mediathek { align-items: center; padding-top: 4%; }
+    .page-hero--mediathek .page-hero__inner { text-align: center; }
+    .page-hero--mediathek h1 { text-align: center; font-size: clamp(2.55rem, 6.8vw, 5.525rem); }
+    .page-hero--mediathek .page-hero__sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      margin-top: 0.5rem;
+    }
+
+    /* ══════════════════════════════════════════
+       SCHNELLNAVIGATION
+    ══════════════════════════════════════════ */
+    .quicknav {
+      background: var(--surface);
+      padding: 1.5rem var(--pad-x);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .quicknav__inner {
+      max-width: 1100px; margin-inline: auto;
+      display: flex; justify-content: center;
+      gap: 0.75rem; flex-wrap: wrap;
+    }
+    .quicknav__btn {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); border: 1.5px solid var(--accent);
+      border-radius: 2px; padding: 0.5rem 1.25rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .quicknav__btn:hover {
+      background: var(--accent); color: #fff;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION BASE
+    ══════════════════════════════════════════ */
+    .media-section {
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .media-section__inner { max-width: 1100px; margin-inline: auto; }
+    .media-section__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .media-section--dark .media-section__eyebrow { color: rgba(255,255,255,0.45); }
+    .media-section__headline {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: 0.75rem; line-height: 1.2;
+    }
+    .media-section--dark .media-section__headline { color: #fff; }
+    .media-section__text {
+      font-size: 1rem; color: var(--ink-soft);
+      line-height: 1.8; max-width: 680px;
+      margin-bottom: var(--gap-md);
+    }
+    .media-section--dark .media-section__text { color: rgba(255,255,255,0.65); }
+
+    /* ══════════════════════════════════════════
+       PODCAST PLACEHOLDER
+    ══════════════════════════════════════════ */
+    .podcast-placeholder {
+      background: #f0ede8; border-radius: 12px;
+      padding: 3rem; text-align: center;
+      margin-bottom: var(--gap-md);
+    }
+    .podcast-placeholder__inner p {
+      color: var(--ink-soft); margin: 0.25rem 0;
+      font-size: 1rem; line-height: 1.6;
+    }
+    .podcast-placeholder__inner p:first-child {
+      font-size: 1.1rem; font-weight: 600; color: var(--ink);
+    }
+
+    /* ══════════════════════════════════════════
+       PREDIGT CARDS
+    ══════════════════════════════════════════ */
+    .predigt-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .predigt-card {
+      background: #fff; border-radius: 12px;
+      padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      position: relative; overflow: hidden;
+    }
+    .predigt-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent);
+    }
+    .predigt-card__date {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+    }
+    .predigt-card__title {
+      font-size: 1.05rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 0.4rem; line-height: 1.3;
+    }
+    .predigt-card__meta {
+      font-size: 0.85rem; color: var(--ink-soft);
+      margin-bottom: 1rem;
+    }
+    .predigt-card__play {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .predigt-card__play:hover { opacity: 0.7; }
+    .predigt-card__play svg {
+      width: 16px; height: 16px;
+      fill: var(--accent);
+    }
+
+    /* ══════════════════════════════════════════
+       WORSHIP GRID
+    ══════════════════════════════════════════ */
+    .worship-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .worship-item__label {
+      font-size: 0.8rem; color: rgba(255,255,255,0.55);
+      margin-top: 0.6rem; line-height: 1.4;
+    }
+    .worship-card {
+      display: block; text-decoration: none;
+      border-radius: 10px; overflow: hidden;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .worship-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.5); }
+    .worship-card__thumb {
+      position: relative; width: 100%;
+      aspect-ratio: 16/9; display: block;
+    }
+    .worship-card__thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .worship-card__play {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.25);
+      transition: background 0.2s;
+    }
+    .worship-card:hover .worship-card__play { background: rgba(0,0,0,0.1); }
+    .worship-card__play svg {
+      width: 52px; height: 52px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+    }
+    .worship-card__label {
+      font-size: 0.8rem; color: rgba(255,255,255,0.6);
+      margin-top: 0.6rem; line-height: 1.4; display: block;
+    }
+
+    /* ══════════════════════════════════════════
+       VIDEO PLACEHOLDER
+    ══════════════════════════════════════════ */
+    .video-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1rem; margin-bottom: var(--gap-md);
+    }
+    .video-placeholder {
+      background: #f0ede8; border-radius: 12px;
+      padding: 3rem 2rem; text-align: center;
+      position: relative;
+    }
+    .video-placeholder__badge {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(95,179,179,0.12);
+      border: 1px solid rgba(95,179,179,0.3);
+      border-radius: 2px; padding: 0.25rem 0.6rem;
+      display: inline-block; margin-bottom: 0.75rem;
+    }
+    .video-placeholder p {
+      color: var(--ink-soft); font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* ══════════════════════════════════════════
+       ERF LINKS
+    ══════════════════════════════════════════ */
+    .erf-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1rem; margin-top: var(--gap-md);
+    }
+    .erf-eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--ink-muted);
+      margin-bottom: 0.5rem;
+    }
+    .erf-subheadline {
+      font-size: 1.25rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .erf-intro {
+      font-size: 0.95rem; color: var(--ink-soft);
+      line-height: 1.7; margin-bottom: 1rem; max-width: 560px;
+    }
+    .erf-card {
+      background: #fff; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      display: flex; flex-direction: column;
+    }
+    .erf-card__image {
+      width: 100%; aspect-ratio: 16 / 9;
+      background-size: cover; background-position: center;
+      flex-shrink: 0;
+    }
+    .erf-card__body {
+      padding: 1rem 1.25rem 1.25rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .erf-card__title {
+      font-size: 1rem; font-weight: 700; color: var(--ink);
+      margin: 0;
+    }
+    .erf-card__text {
+      font-size: 0.875rem; color: var(--ink-soft);
+      line-height: 1.6; margin-bottom: 1rem;
+    }
+
+    /* ══════════════════════════════════════════
+       CLOSING CTA
+    ══════════════════════════════════════════ */
+    .closing {
+      background: var(--accent);
+      padding: var(--gap-lg) var(--pad-x);
+      text-align: center;
+    }
+    .closing__inner { max-width: 680px; margin-inline: auto; }
+    .closing__headline {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: 0.75rem; line-height: 1.2;
+    }
+    .closing__text {
+      font-size: 1rem; color: rgba(255,255,255,0.85);
+      line-height: 1.75; margin-bottom: 1.75rem;
+    }
+    .btn--white {
+      background: #fff; color: var(--accent);
+      font-size: 0.8125rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.75rem 2rem; border-radius: 2px;
+      display: inline-flex; align-items: center;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn--white:hover { opacity: 0.9; }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .predigt-grid { grid-template-columns: 1fr; }
+      .worship-grid { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: 1fr; }
+      .erf-grid { grid-template-columns: 1fr; }
+      .media-section { padding: var(--gap-md) var(--pad-x); }
+      .closing { padding: var(--gap-md) var(--pad-x); }
+      .page-hero--mediathek { align-items: center; justify-content: center; padding-top: 20%; }
+      .page-hero--mediathek .page-hero__inner { text-align: center; padding-inline: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+
+<!-- NAV -->
+<nav class="nav" id="nav"><div class="nav__inner">
+  <a class="nav__logo" href="../index.html"><img src="../assets/fecglogo.png" alt="FECG Ratzeburg" /></a>
+  <ul class="nav__list" role="list">
+    <li class="nav__item"><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+    <li class="nav__item"><a href="gemeindeleben.html" class="nav__link">Gemeindeleben</a></li>
+    <li class="nav__item"><a href="jugend.html" class="nav__link">Jugend</a></li>
+    <li class="nav__item"><a href="royal-rangers.html" class="nav__link">Royal Rangers</a></li>
+    <li class="nav__item"><a href="mediathek.html" class="nav__link" aria-current="page">Mediathek</a></li>
+    <li class="nav__item"><a href="termine.html" class="nav__link">Termine</a></li>
+    <li class="nav__item"><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+    <li class="nav__item"><a href="gottesdienste.html" class="nav__link nav__link--cta">Gottesdienst →</a></li>
+  </ul>
+  <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div></nav>
+
+<nav class="nav__mobile" aria-label="Mobile Navigation">
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="gottesdienste.html">Gottesdienst</a>
+  <a href="gemeindeleben.html">Gemeindeleben</a>
+  <a href="jugend.html">Jugend</a>
+  <a href="royal-rangers.html">Royal Rangers</a>
+  <a href="mediathek.html" aria-current="page">Mediathek</a>
+  <a href="termine.html">Termine</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<main id="main">
+
+<!-- 1. HERO ─────────────────────────────────────────────────── -->
+<!-- Austauschen: echtes Foto -->
+<section class="page-hero page-hero--mediathek"
+         style="background-image: url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=1920&q=75&auto=format&fit=crop');">
+  <div class="page-hero__inner" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+    <h1 style="text-align: center; max-width: 700px;">Hör rein.</h1>
+  </div>
+</section>
+
+<!-- 2. SCHNELLNAVIGATION ────────────────────────────────────── -->
+
+<!-- 3. PREDIGTEN ────────────────────────────────────────────── -->
+<section class="media-section" id="predigten" style="background: var(--surface);">
+  <div class="media-section__inner">
+    <p class="media-section__eyebrow reveal">Predigten</p>
+    <h2 class="media-section__headline reveal d1">Immer dabei — auch unterwegs.</h2>
+    <p class="media-section__text reveal d2">Unsere Predigten zum Nachhören und Nachforschen — egal ob beim Sport, unterwegs oder auf der Couch.</p>
+
+    <!-- SPOTIFY PODCAST EMBED -->
+    <!-- 1. Podcast auf open.spotify.com/podcasters erstellen -->
+    <!-- 2. Embed-Code hier einfügen -->
+    <div class="podcast-placeholder reveal d2">
+      <div class="podcast-placeholder__inner">
+        <p>Predigten als Podcast</p>
+        <p>Bald kannst du unsere Predigten direkt hier anhören oder über Spotify abonnieren.</p>
+      </div>
+    </div>
+
+    <!-- Predigt-Cards mit echten Daten ersetzen -->
+    <div class="predigt-grid">
+      <div class="predigt-card reveal">
+        <p class="predigt-card__date">01. März 2026</p>
+        <p class="predigt-card__title">Abendmahl Passionszeit 2. So.</p>
+        <p class="predigt-card__meta">Armin Mundt</p>
+        <a href="#" class="predigt-card__play">
+          <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+          Predigt anhören
+        </a>
+      </div>
+      <div class="predigt-card reveal d1">
+        <p class="predigt-card__date">22. Februar 2026</p>
+        <p class="predigt-card__title">Geführt durch den Heiligen Geist</p>
+        <p class="predigt-card__meta">Jörg Greef</p>
+        <a href="#" class="predigt-card__play">
+          <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+          Predigt anhören
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4. WORSHIP ──────────────────────────────────────────────── -->
+<section class="media-section media-section--dark" id="worship" style="background: var(--dark-2);">
+  <div class="media-section__inner">
+    <p class="media-section__eyebrow reveal">Worship</p>
+    <h2 class="media-section__headline reveal d1">Gott Komplimente machen.</h2>
+    <p class="media-section__text reveal d2">Worship heißt: Gott danken, ihn bestaunen, ihn feiern. Hier findest du eine Auswahl von Worship-Songs — zum Mitsingen und Nachklingen.</p>
+
+    <div class="worship-grid">
+
+      <div class="worship-item reveal d1">
+        <iframe src="https://www.youtube-nocookie.com/embed/Zp6aygmvzM4"
+          width="100%" height="220" frameborder="0" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          style="border-radius: 8px; display: block;"></iframe>
+      </div>
+
+      <div class="worship-item reveal d2">
+        <iframe src="https://www.youtube-nocookie.com/embed/RFIr8-gH55E"
+          width="100%" height="220" frameborder="0" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          style="border-radius: 8px; display: block;"></iframe>
+      </div>
+
+      <div class="worship-item reveal d3">
+        <iframe src="https://www.youtube-nocookie.com/embed/XkuZGl-U5aU"
+          width="100%" height="220" frameborder="0" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          style="border-radius: 8px; display: block;"></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 5. LEBENSBERICHTE ───────────────────────────────────────── -->
+<section class="media-section" id="lebensberichte" style="background: var(--surface);">
+  <div class="media-section__inner">
+    <p class="media-section__eyebrow reveal">Lebensberichte</p>
+    <h2 class="media-section__headline reveal d1">Geschichten, die ins Staunen bringen.</h2>
+    <p class="media-section__text reveal d2">Ja, es ist möglich, Gott zu begegnen — und diese Begegnung verändert Menschen. Hier findest du persönliche Geschichten, die Hoffnung geben.</p>
+
+    <!-- ERF Externe Links -->
+    <div>
+      <p class="erf-subheadline reveal d1">Bei ERF Mensch Gott</p>
+      <p class="media-section__text reveal d2" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">Hier findest du ausgewählte Lebensberichte von ERF Mensch Gott, die ermutigen und zum Nachdenken einladen.</p>
+      <div class="erf-grid">
+        <div class="erf-card reveal d2">
+          <div class="erf-card__image" style="background-image: url('../assets/keinekraft.png');"></div>
+          <div class="erf-card__body">
+            <p class="erf-card__title">Keine Kraft zum Leben</p>
+            <p class="erf-card__text">Krebs, Pandemie, Depression — und dann springt sie von der Brücke. Die Geschichte von Lena Johanna.</p>
+            <a href="https://www.erf.de/hoeren-sehen/erf-mediathek/sendungen-a-z/erf-mensch-gott/keine-kraft-zum-leben/67-903" class="btn btn--primary" style="justify-content: center;" target="_blank" rel="noopener">Jetzt ansehen</a>
+          </div>
+        </div>
+        <div class="erf-card reveal d3">
+          <div class="erf-card__image" style="background-image: url('../assets/nachdemtod.png');"></div>
+          <div class="erf-card__body">
+            <p class="erf-card__title">Was kommt nach dem Tod?</p>
+            <p class="erf-card__text">Seit er Kind ist, hat Mirko Angst vor dem Tod. Als sein Vater plötzlich stirbt, verliert er jeden Halt — bis er selbst im Krankenhaus landet.</p>
+            <a href="https://www.erf.de/hoeren-sehen/erf-mediathek/sendungen-a-z/erf-mensch-gott/was-kommt-nach-dem-tod/67-860" class="btn btn--primary" style="justify-content: center;" target="_blank" rel="noopener">Jetzt ansehen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 6. CLOSING CTA ──────────────────────────────────────────── -->
+<section class="closing-section">
+  <video class="closing-section__video" autoplay muted loop playsinline>
+    <source src="../assets/worship.mp4" type="video/mp4">
+  </video>
+  <div class="closing-section__overlay"></div>
+  <div class="closing-section__content">
+    <h2 class="closing-section__headline reveal">Sonntags live dabei sein.</h2>
+<a href="../gottesdienste.html" class="btn btn--primary closing-section__btn reveal d2">Gottesdienst besuchen</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER ──────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__brand">
+      <img class="footer__logo" src="../assets/fecglogo.png" alt="FECG Ratzeburg" />
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__contact">
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <strong class="footer__contact-label">E-Mail</strong>
+        <a href="mailto:info@fecg-ratzeburg.de" class="footer__contact-val">info@fecg-ratzeburg.de</a>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <strong class="footer__contact-label">Adresse</strong>
+        <address class="footer__contact-val">Robert-Bosch-Straße 7<br/>23909 Ratzeburg</address>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12 19.79 19.79 0 0 1 1.52 3.5 2 2 0 0 1 3.5 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <strong class="footer__contact-label">Telefon</strong>
+        <a href="tel:+4945418336" class="footer__contact-val">04541 83365</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__verse-bar">
+    <p class="footer__verse">„Der HERR ist mein Hirte, mir wird nichts mangeln."</p>
+    <cite class="footer__verse-ref">— Psalm 23</cite>
+  </div>
+  <div class="footer__divider"></div>
+  <div class="footer__lower">
+    <nav class="footer__nav-cols" aria-label="Footer-Navigation">
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Entdecken</p>
+        <div class="footer__nav-links">
+          <a href="../ueber-uns.html">Über uns</a>
+          <a href="../gottesdienste.html">Gottesdienst</a>
+          <a href="../gemeindeleben.html">Gemeindeleben</a>
+          <a href="../kontakt.html">Kontakt</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Bereiche</p>
+        <div class="footer__nav-links">
+          <a href="../jugend.html">Jugend</a>
+          <a href="../royal-rangers.html">Royal Rangers</a>
+          <a href="index.html">Mediathek</a>
+          <a href="../termine.html">Termine</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Kontakt &amp; Rechtliches</p>
+        <div class="footer__nav-links">
+          <a href="../kontakt.html">Kontakt</a>
+          <a href="../mitglieder.html">Mitgliederbereich</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </nav>
+    <div class="footer__bottom">
+      <span>© 2026 FECG Ratzeburg.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Rangers – FECG Ratzeburg</title>
+  <meta name="description" content="Royal Rangers Stamm 434 Ratzeburg — Pfadfinderarbeit für Kinder und Jugendliche von 6 bis 18 Jahren. Jeden Freitag, 17–19 Uhr." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    body { background: var(--surface); }
+
+    .page-hero--rr {
+      align-items: center;
+    }
+    .page-hero--rr::before {
+      background: rgba(0,0,0,0.25);
+    }
+    .page-hero--rr .page-hero__inner {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0;
+    }
+    .rr-hero-content {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1.25rem;
+    }
+    .rr-hero-logo {
+      width: 90px; height: 90px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+    }
+    .rr-hero-headline {
+      max-width: min(680px, 85vw);
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .intro__stamm-wrap {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+    .intro__stamm-logo {
+      width: 36px; height: 36px; object-fit: contain; flex-shrink: 0;
+    }
+    .intro__stamm {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent);
+    }
+
+    /* ══════════════════════════════════════════
+       FAKTEN-LEISTE
+    ══════════════════════════════════════════ */
+    .fakten {
+      background: #eceae5;
+      padding: 2.5rem var(--pad-x);
+    }
+    .fakten__inner {
+      max-width: 1100px; margin-inline: auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .fakten__item {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.3rem;
+    }
+    .fakten__icon {
+      margin-bottom: 0.25rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .fakten__icon svg {
+      width: 24px; height: 24px;
+      stroke: var(--accent); stroke-width: 1.5;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .fakten__label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .fakten__value {
+      font-size: 1rem; font-weight: 700; color: var(--ink);
+    }
+
+    /* ══════════════════════════════════════════
+       INTRO
+    ══════════════════════════════════════════ */
+    .intro {
+      background: var(--surface);
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .intro__inner {
+      max-width: 1100px; margin-inline: auto;
+      display: grid; grid-template-columns: 1.3fr 1.5fr;
+      gap: var(--gap-lg); align-items: center;
+    }
+    .intro__eyebrow {
+      font-size: 0.875rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .intro__headline {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    .intro__text {
+      font-size: 1.1rem; color: var(--ink-soft);
+      line-height: 1.8;
+    }
+    .intro__quote {
+      margin-top: 1.5rem;
+      padding-left: 1.25rem;
+      border-left: 3px solid var(--accent);
+    }
+    .intro__quote-text {
+      font-size: 1.2rem; font-weight: 700; font-style: italic;
+      color: var(--ink); line-height: 1.4;
+    }
+    .intro__quote-source {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-top: 0.4rem; display: block;
+    }
+    .altersstufen__card-team {
+      font-size: 0.8rem; color: var(--ink-muted);
+      margin-top: 0.35rem; font-style: italic;
+    }
+    .intro__photos {
+      display: block;
+    }
+    .intro__photo {
+      border-radius: 12px; overflow: hidden;
+      display: block; width: 100%; object-fit: cover;
+    }
+    .intro__photo--tall { height: auto; aspect-ratio: 4/3; object-position: right center; }
+    .intro__photo--short { height: 270px; margin-bottom: 1.5rem; }
+
+    /* ══════════════════════════════════════════
+       DAS ERWARTET DICH (Foto-Cards)
+    ══════════════════════════════════════════ */
+    .erwartet {
+      background: var(--dark-2);
+      padding: var(--gap-lg) var(--pad-x);
+    }
+    .erwartet__inner { max-width: 1100px; margin-inline: auto; text-align: center; }
+    .erwartet__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      margin-bottom: 0.6rem;
+    }
+    .erwartet__headline {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff;
+      margin-bottom: var(--gap-md);
+    }
+    .erwartet__cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .erwartet__card {
+      position: relative; border-radius: 12px;
+      overflow: hidden; height: 352px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .erwartet__card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+    }
+    .erwartet__card-photo {
+      position: absolute; inset: 0;
+    }
+    .erwartet__card-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .erwartet__card-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+    }
+    .erwartet__card-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.25rem;
+      z-index: 1; text-align: left;
+    }
+    .erwartet__card-tag {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .erwartet__card-title {
+      font-size: 1rem; font-weight: 700; color: #fff;
+      margin-bottom: 0.35rem;
+    }
+    .erwartet__card-text {
+      font-size: 0.85rem; color: rgba(255,255,255,0.9); line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════
+       ALTERSSTUFEN
+    ══════════════════════════════════════════ */
+    .altersstufen {
+      background: var(--surface);
+      padding: var(--gap-md) var(--pad-x);
+    }
+    .altersstufen__inner { max-width: 1100px; margin-inline: auto; width: 100%; text-align: center; }
+    .altersstufen__sub { margin-inline: auto; }
+    .altersstufen__card { text-align: left; }
+    .altersstufen__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--ink-muted);
+      margin-bottom: 0.6rem;
+    }
+    .altersstufen__headline {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .altersstufen__sub {
+      font-size: 1rem; color: var(--ink-soft);
+      margin-bottom: var(--gap-md); max-width: 600px;
+    }
+    .altersstufen__grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .altersstufen__card {
+      background: #fff; border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .altersstufen__card::before {
+      content: ''; display: block;
+      width: 2rem; height: 3px;
+      background: var(--accent); border-radius: 2px;
+      margin-bottom: 0.85rem;
+    }
+    .altersstufen__card-age {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .altersstufen__card-name {
+      font-size: 1rem; font-weight: 700; color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .altersstufen__card-desc {
+      font-size: 0.875rem; color: var(--ink-soft); line-height: 1.6;
+    }
+
+
+    /* ══════════════════════════════════════════
+       WANN & WO
+    ══════════════════════════════════════════ */
+    .wannwo {
+      background: var(--accent);
+      padding: var(--gap-lg) var(--pad-x);
+      text-align: center;
+    }
+    .wannwo__inner { max-width: 800px; margin-inline: auto; }
+    .wannwo__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.65);
+      margin-bottom: 0.6rem;
+    }
+    .wannwo__headline {
+      font-size: clamp(1.8rem, 4vw, 2.75rem); font-weight: 800;
+      letter-spacing: -0.03em; color: #fff; margin-bottom: 0.4rem;
+    }
+    .wannwo__address {
+      font-size: 1rem; color: rgba(255,255,255,0.85);
+      margin-bottom: var(--gap-md);
+    }
+    .wannwo__cards {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1rem; text-align: left; margin-top: 1.5rem; margin-bottom: 1.25rem;
+    }
+    .wannwo__card {
+      background: #fff; border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+    }
+    .wannwo__card-icon { font-size: 1.5rem; margin-bottom: 0.6rem; display: block; }
+    .wannwo__card-main {
+      font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .wannwo__card-sub { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; }
+    .wannwo__hint {
+      font-size: 0.9rem; color: rgba(255,255,255,0.8);
+    }
+
+    /* ══════════════════════════════════════════
+       KONTAKT CTA
+    ══════════════════════════════════════════ */
+    .kontakt-cta {
+      background: var(--surface);
+      padding: var(--gap-lg) var(--pad-x);
+      text-align: center;
+    }
+    .kontakt-cta__inner { max-width: 800px; margin-inline: auto; }
+    .kontakt-cta__person {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.2rem;
+      margin-bottom: 1.3rem;
+    }
+    .kontakt-cta__avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      object-fit: cover; object-position: 85% 5%;
+      margin-bottom: 0.4rem;
+    }
+    .kontakt-cta__eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--ink-muted);
+      margin: 0;
+    }
+    .kontakt-cta__headline {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin-bottom: 0.75rem; line-height: 1.2;
+    }
+    .kontakt-cta__text {
+      font-size: 1rem; color: var(--ink-soft);
+      line-height: 1.75; margin-bottom: 1rem;
+    }
+    .kontakt-cta__name {
+      font-size: 1.05rem; font-weight: 700; color: var(--ink);
+      margin: 0 !important; padding: 0;
+    }
+    .kontakt-cta__role {
+      font-size: 0.875rem; color: var(--ink-muted);
+      margin: 0 !important; padding: 0;
+    }
+    .kontakt-cta__btns {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 860px) {
+      .fakten__inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .fakten__value { font-size: 0.9rem; }
+      .fakten__label { font-size: 0.61rem; }
+
+      .intro { padding: var(--gap-md) var(--pad-x); }
+      .intro__inner { grid-template-columns: 1fr; }
+      .intro__text-wrap { text-align: center; }
+      .intro__photos { grid-template-columns: 1fr 1fr; }
+      .intro__photo--tall { height: auto; aspect-ratio: 5/4; object-position: 80% center; }
+      .intro__photo--short { height: 150px; margin-bottom: 1rem; }
+
+      .erwartet { padding: var(--gap-md) var(--pad-x); }
+      .erwartet__cards { grid-template-columns: 1fr; }
+      .erwartet__card { min-height: 260px; height: auto; }
+      .erwartet__card-text { font-size: 0.85rem; color: rgba(255,255,255,0.95); }
+
+      .altersstufen { padding: var(--gap-md) var(--pad-x); }
+      .altersstufen__grid { grid-template-columns: repeat(2, 1fr); }
+
+      .wannwo { padding: var(--gap-md) var(--pad-x); }
+      .wannwo__cards { grid-template-columns: 1fr; }
+
+      .kontakt-cta { padding: var(--gap-md) var(--pad-x); }
+      .kontakt-cta__btns { flex-direction: column; align-items: center; }
+      .kontakt-cta__btns .btn { width: 85%; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .fakten__inner { grid-template-columns: repeat(2, 1fr); }
+      .altersstufen__grid { grid-template-columns: 1fr; }
+      .intro__photos { grid-template-columns: 1fr; }
+      .intro__photo--short { margin-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+
+<!-- NAV -->
+<nav class="nav" id="nav"><div class="nav__inner">
+  <a class="nav__logo" href="../index.html"><img src="../assets/fecglogo.png" alt="FECG Ratzeburg" /></a>
+  <ul class="nav__list" role="list">
+    <li class="nav__item"><a href="ueber-uns.html" class="nav__link">Über uns</a></li>
+    <li class="nav__item"><a href="gemeindeleben.html" class="nav__link">Gemeindeleben</a></li>
+    <li class="nav__item"><a href="jugend.html" class="nav__link">Jugend</a></li>
+    <li class="nav__item"><a href="royal-rangers.html" class="nav__link" aria-current="page">Royal Rangers</a></li>
+    <li class="nav__item"><a href="mediathek.html" class="nav__link">Mediathek</a></li>
+    <li class="nav__item"><a href="termine.html" class="nav__link">Termine</a></li>
+    <li class="nav__item"><a href="kontakt.html" class="nav__link">Kontakt</a></li>
+    <li class="nav__item"><a href="gottesdienste.html" class="nav__link nav__link--cta">Gottesdienst →</a></li>
+  </ul>
+  <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div></nav>
+
+<nav class="nav__mobile" aria-label="Mobile Navigation">
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="gottesdienste.html">Gottesdienst</a>
+  <a href="gemeindeleben.html">Gemeindeleben</a>
+  <a href="jugend.html">Jugend</a>
+  <a href="royal-rangers.html" aria-current="page">Royal Rangers</a>
+  <a href="mediathek.html">Mediathek</a>
+  <a href="termine.html">Termine</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
+
+<main id="main">
+
+<!-- 1. HERO ─────────────────────────────────────────────────── -->
+<!-- Austauschen: echtes Royal Rangers Gruppenfoto Stamm 434 -->
+<section class="page-hero page-hero--centered page-hero--rr"
+         style="background-image: url('../assets/rr-hero.jpg');">
+  <div class="page-hero__inner">
+    <div class="rr-hero-content">
+      <img class="rr-hero-logo" src="../assets/rr-logo.png" alt="Royal Rangers Logo" />
+      <img class="rr-hero-headline" src="../assets/rr-headline.png" alt="Wir lieben das Abenteuer!" />
+    </div>
+  </div>
+</section>
+
+<!-- 2. FAKTEN-LEISTE ────────────────────────────────────────── -->
+<section class="fakten">
+  <div class="fakten__inner">
+    <div class="fakten__item reveal">
+      <span class="fakten__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      <span class="fakten__label">Alter</span>
+      <span class="fakten__value">6–18 Jahre</span>
+    </div>
+    <div class="fakten__item reveal d1">
+      <span class="fakten__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+      <span class="fakten__label">Treffzeit</span>
+      <span class="fakten__value">Fr. 17–19 Uhr</span>
+    </div>
+    <div class="fakten__item reveal d2">
+      <span class="fakten__icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <span class="fakten__label">Ort</span>
+      <span class="fakten__value">Robert-Bosch-Str. 7</span>
+    </div>
+    <div class="fakten__item reveal d3">
+      <span class="fakten__icon"><img src="../assets/rr-logo-teal.png" alt="Royal Rangers Stamm 434" style="width:24px;height:24px;object-fit:contain;" /></span>
+      <span class="fakten__label">Stamm</span>
+      <span class="fakten__value">434 Ratzeburg</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3. INTRO ────────────────────────────────────────────────── -->
+<section class="intro">
+  <div class="intro__inner">
+    <div>
+      <div class="intro__text-wrap">
+        <p class="intro__eyebrow reveal">Motto der Royal Rangers</p>
+        <h2 class="intro__headline reveal d1">„Allzeit bereit für Jesus!"</h2>
+        <p class="intro__text reveal d2">Für uns ist das kein Spruch — das ist unser Alltag. Mädels und Jungs von 6 bis 18 Jahren erleben bei uns echtes Abenteuer, echte Freundschaft und einen echten Glauben. Draußen in der Natur, gemeinsam im Team und mit Gott unterwegs.</p>
+      </div>
+    </div>
+    <div class="intro__photos reveal d2">
+      <!-- Austauschen: echtes Stammfoto -->
+      <figure style="margin:0;">
+        <img class="intro__photo intro__photo--tall"
+             src="../assets/rr-leiter.png"
+             alt="Leiter Royal Rangers Stamm 434 Ratzeburg" />
+        <figcaption style="font-size:0.875rem;color:var(--ink-muted);margin-top:0.4rem;text-align:center;">Unsere Teamleiter</figcaption>
+      </figure>
+      <!-- Austauschen: echtes Aktionsfoto -->
+    </div>
+  </div>
+</section>
+
+<!-- 4. DAS ERWARTET DICH ────────────────────────────────────── -->
+<section class="erwartet">
+  <div class="erwartet__inner">
+    
+    <h2 class="erwartet__headline reveal d1">Das erwartet dich.</h2>
+    <div class="erwartet__cards">
+
+      <div class="erwartet__card reveal">
+        <div class="erwartet__card-photo">
+          <!-- Austauschen: Foto Lagerfeuer/Outdoor -->
+          <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=700&q=75&auto=format&fit=crop"
+               alt="Abenteuer & Natur" />
+        </div>
+        <div class="erwartet__card-body">
+          <p class="erwartet__card-tag">Natur &amp; Abenteuer</p>
+          <p class="erwartet__card-title">Draußen unterwegs</p>
+          <p class="erwartet__card-text">Rausgehen, Feuer machen, Knoten lernen, campen — und die Schöpfung mit eigenen Augen entdecken.</p>
+        </div>
+      </div>
+
+      <div class="erwartet__card reveal d1">
+        <div class="erwartet__card-photo">
+          <!-- Austauschen: Foto Kinder bei Aktion/Teamwork -->
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=700&q=75&auto=format&fit=crop"
+               alt="Team & Freundschaft" />
+        </div>
+        <div class="erwartet__card-body">
+          <p class="erwartet__card-tag">Team &amp; Freundschaft</p>
+          <p class="erwartet__card-title">Gemeinsam wachsen</p>
+          <p class="erwartet__card-text">Zusammenhalten, Verantwortung übernehmen und Freundschaften erleben, die im Alltag tragen.</p>
+        </div>
+      </div>
+
+      <div class="erwartet__card reveal d2">
+        <div class="erwartet__card-photo">
+          <!-- Austauschen: Foto Andacht/Gemeinschaft -->
+          <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?w=700&q=75&auto=format&fit=crop"
+               alt="Glauben praktisch erleben" />
+        </div>
+        <div class="erwartet__card-body">
+          <p class="erwartet__card-tag">Christliche Werte</p>
+          <p class="erwartet__card-title">Glauben praktisch erleben</p>
+          <p class="erwartet__card-text">Gott kennenlernen, füreinander da sein und Glauben ganz praktisch im Alltag leben.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 5. ALTERSSTUFEN ─────────────────────────────────────────── -->
+<section class="altersstufen">
+  <div class="altersstufen__inner">
+    <h2 class="altersstufen__headline reveal d1">Für jeden ist ein Team dabei.</h2>
+    <p class="altersstufen__sub reveal d2">Kinder und Jugendliche wachsen bei uns altersgerecht in Teams — mit passenden Herausforderungen, Freundschaften und Leitern, die sie begleiten.</p>
+    <div class="altersstufen__grid">
+      <div class="altersstufen__card reveal">
+        <p class="altersstufen__card-age">6–8 Jahre</p>
+        <p class="altersstufen__card-name">Forscher</p>
+        <p class="altersstufen__card-team">Die Löwen</p>
+        <p class="altersstufen__card-desc">Die Jüngsten entdecken spielerisch die Natur — mit Abenteuern, Freundschaften und viel Spaß.</p>
+      </div>
+      <div class="altersstufen__card reveal d1">
+        <p class="altersstufen__card-age">9–11 Jahre</p>
+        <p class="altersstufen__card-name">Kundschafter</p>
+        <p class="altersstufen__card-team">Die wilden Gorillas</p>
+        <p class="altersstufen__card-desc">Erste eigene Projekte, Teamarbeit und Ausflüge in die Natur.</p>
+      </div>
+      <div class="altersstufen__card reveal d2">
+        <p class="altersstufen__card-age">12–14 Jahre</p>
+        <p class="altersstufen__card-name">Pfadfinder</p>
+        <p class="altersstufen__card-team">Die pfiffigen Murmeltiere</p>
+        <p class="altersstufen__card-desc">Kanufahrten, Wanderungen, Lagerfeuerabende — mehr Verantwortung, größere Abenteuer.</p>
+      </div>
+      <div class="altersstufen__card reveal d3">
+        <p class="altersstufen__card-age">15–17 Jahre</p>
+        <p class="altersstufen__card-name">Pfadrangers</p>
+        <p class="altersstufen__card-desc">Die Älteren leiten jüngere Teams, übernehmen Verantwortung und wachsen als Persönlichkeiten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WANN & WO ────────────────────────────────────────────── -->
+<section class="wannwo">
+  <div class="wannwo__inner">
+    <h2 class="wannwo__headline reveal d1">Komm einfach vorbei.</h2>
+    <div class="wannwo__cards">
+      <div class="wannwo__card reveal d2">
+        <span class="wannwo__card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+        <p class="wannwo__card-main">Freitags · 17:00–19:00 Uhr</p>
+        <p class="wannwo__card-sub">In den Schulferien und im Januar keine Treffen.</p>
+      </div>
+      <div class="wannwo__card reveal d3">
+        <span class="wannwo__card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <p class="wannwo__card-main">Robert-Bosch-Straße 7</p>
+        <p class="wannwo__card-sub">23909 Ratzeburg</p>
+      </div>
+    </div>
+    <p class="wannwo__hint reveal d3">Du kannst gerne vorher Kontakt aufnehmen — oder einfach reinschnuppern.</p>
+  </div>
+</section>
+
+<!-- 8. KONTAKT CTA ──────────────────────────────────────────── -->
+<section class="kontakt-cta" id="kontakt">
+  <div class="kontakt-cta__inner">
+    <h2 class="kontakt-cta__headline reveal d1">Bereit fürs nächste Abenteuer?</h2>
+    <p class="kontakt-cta__text reveal d2">Melde dich kurz bei Benjamin — er sagt dir wann du dazukommen kannst und was du mitbringen solltest.</p>
+    <div class="kontakt-cta__person reveal d2">
+      <img class="kontakt-cta__avatar" src="../assets/rr-avatar.png" alt="Benjamin Mundt" />
+      <div>
+        <p class="kontakt-cta__name">Benjamin Mundt</p>
+        <p class="kontakt-cta__role">Stammleiter Royal Rangers Stamm 434 Ratzeburg</p>
+      </div>
+    </div>
+    <div class="kontakt-cta__btns reveal d3">
+      <a href="https://wa.me/4915755201718" class="btn btn--primary">WhatsApp schreiben</a>
+      <a href="mailto:royal.rangers@fecg-ratzeburg.de" class="btn btn--secondary">E-Mail schreiben</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER ──────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__brand">
+      <img class="footer__logo" src="../assets/fecglogo.png" alt="FECG Ratzeburg" />
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram" class="footer__social-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__contact">
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <strong class="footer__contact-label">E-Mail</strong>
+        <a href="mailto:info@fecg-ratzeburg.de" class="footer__contact-val">info@fecg-ratzeburg.de</a>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <strong class="footer__contact-label">Adresse</strong>
+        <address class="footer__contact-val">Robert-Bosch-Straße 7<br/>23909 Ratzeburg</address>
+      </div>
+      <div class="footer__contact-item">
+        <div class="footer__contact-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.49 12 19.79 19.79 0 0 1 1.52 3.5 2 2 0 0 1 3.5 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <strong class="footer__contact-label">Telefon</strong>
+        <a href="tel:+4945418336" class="footer__contact-val">04541 83365</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__verse-bar">
+    <p class="footer__verse">„Der HERR ist mein Hirte, mir wird nichts mangeln."</p>
+    <cite class="footer__verse-ref">— Psalm 23</cite>
+  </div>
+  <div class="footer__divider"></div>
+  <div class="footer__lower">
+    <nav class="footer__nav-cols" aria-label="Footer-Navigation">
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Entdecken</p>
+        <div class="footer__nav-links">
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="gottesdienste.html">Gottesdienst</a>
+          <a href="gemeindeleben.html">Gemeindeleben</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Bereiche</p>
+        <div class="footer__nav-links">
+          <a href="jugend.html">Jugend</a>
+          <a href="royal-rangers.html">Royal Rangers</a>
+          <a href="mediathek.html">Mediathek</a>
+          <a href="termine.html">Termine</a>
+        </div>
+      </div>
+      <div class="footer__nav-col">
+        <p class="footer__nav-heading">Kontakt &amp; Rechtliches</p>
+        <div class="footer__nav-links">
+          <a href="kontakt.html">Kontakt</a>
+          <a href="mitglieder.html">Mitgliederbereich</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </nav>
+    <div class="footer__bottom">
+      <span>© 2026 FECG Ratzeburg.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
