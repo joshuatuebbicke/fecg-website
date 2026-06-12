@@ -4,6 +4,22 @@
    Typografie: Inter only
    ============================================================ */
 
+/* FONTS: Lokal gehostet unter /fonts/ – kein Google CDN (DSGVO) */
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter-variable-italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -41,10 +57,6 @@
 
 html { scroll-behavior: smooth; }
 
-.font-playfair {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-}
 body {
   font-family: var(--font);
   font-size: 1rem;
